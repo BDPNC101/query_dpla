@@ -37,13 +37,12 @@ class CustomStreamListener(tweepy.StreamListener):
     
         json_data = result.items[random.randint(0,4)]
         title = json_data['sourceResource.title']
-        title = title[:100]
         json_id = json_data['id']
         item_url = 'http://dp.la/item/%s' % json_id
         
         # tweet DPLA metadata at querier
             
-        api.update_status(".%s %s %s" % (querier, title, item_url), 
+        api.update_status(".%s %s %s" % (querier, title[:75], item_url), 
         in_reply_to_status_id = status.id)
             
     def on_error(self, status_code):
