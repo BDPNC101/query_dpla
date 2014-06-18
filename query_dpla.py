@@ -42,7 +42,7 @@ class CustomStreamListener(tweepy.StreamListener):
         
         # tweet DPLA metadata at querier
             
-        api.update_status(".%s %s %s" % (querier, title[:80], item_url), 
+        api.update_status(".@%s %s %s" % (querier, title[:80], item_url), 
         in_reply_to_status_id = status.id)
             
     def on_error(self, status_code):
