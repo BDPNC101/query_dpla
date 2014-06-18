@@ -35,7 +35,7 @@ class CustomStreamListener(tweepy.StreamListener):
             
         # pick random result, fetch and prepare DPLA metadata
     
-        json_data = result.items[random.randint(0,5)]
+        json_data = result.items[random.randint(0,4)]
         title = json_data['sourceResource.title']
         title = title[:100]
         json_id = json_data['id']
