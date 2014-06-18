@@ -53,7 +53,7 @@ class CustomStreamListener(tweepy.StreamListener):
         
         if total >= 1:    
         	api.update_status(".@%s %s %s" % (querier, title[:80], item_url), 
-            in_reply_to_status_id = status.id)
+        	in_reply_to_status_id = status.id)
         else:
         	api.update_status(".@%s No items found! Try another term!" % querier,
         	in_reply_to_status_id = status.id)           
