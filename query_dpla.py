@@ -34,29 +34,29 @@ class CustomStreamListener(tweepy.StreamListener):
         result = dpla.search(q="%s" % twt_term, fields=["sourceResource.title", "id"],
         page_size=50)
             
-        # pick random result, get and prepare DPLA metadata
+        # pick random result
         
         total = result.count
         
         if total > 49:
-        	json_data = result.items[random.randint(0, 49)]
+            json_data = result.items[random.randint(0, 49)]
         elif total in range (1, 50):
-        	json_data = result.items[random.randint(0, (total - 1))]
+            json_data = result.items[random.randint(0, (total - 1))]
         else:
-        	pass
+            pass
         	
-        title = json_data['sourceResource.title']
-        json_id = json_data['id']
-        item_url = 'http://dp.la/item/%s' % json_id
-        
         # tweet DPLA metadata at querier
         
         if total >= 1:    
-        	api.update_status(".@%s %s %s" % (querier, title[:80], item_url), 
-        	in_reply_to_status_id = status.id)
+            title = json_data['sourceResource.title']
+            json_id = json_data['id']
+            item_url = 'http://dp.la/item/%s' % json_id
+        	
+            api.update_status(".@%s %s %s" % (querier, title[:80], item_url), 
+            in_reply_to_status_id = status.id)
         else:
-        	api.update_status(".@%s No items found! Try another term!" % querier,
-        	in_reply_to_status_id = status.id)           
+            api.update_status(".@%s No items found! Try another term!" % querier,
+            in_reply_to_status_id = status.id)           
     
     def on_error(self, status_code):
         return True
