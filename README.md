@@ -5,6 +5,6 @@ query_dpla
 
 <h2>Known Issues (in process of being fixed)</h2>
 <ul>
-<li>Issues with Unicode handling occasionally make the program stop running..</li>
+<li>Issues with Unicode handling occasionally make the program stop running.</li>
 <li>The bot is unable to distinguish between search terms and references (e.g. if someone tweets "@QueryDPLA (some message about it rather than intended for it)", the bot will search for all text in the tweet that comes after "@QueryDPLA" and reply accordingly.</li>
 </ul>
