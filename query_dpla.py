@@ -30,7 +30,7 @@ class CustomStreamListener(tweepy.StreamListener):
             
         # search DPLA
 
-        dpla = DPLA('577312cc813353849a61ff27530eb6a0')
+        dpla = DPLA('xxxxx') # your DPLA API key
         result = dpla.search(q="%s" % twt_term, fields=["sourceResource.title", "id"],
         page_size=50)
             
